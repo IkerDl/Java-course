@@ -101,11 +101,12 @@ Importante sobrescribir estos métodos al trabajar con colecciones que usan hash
 
 ### Casteo
 Convertir un tipo de dato a otro:
-```java
 double d = 9.7;
 int i = (int) d;  // Casteo de double a int
+
 Boxing y Unboxing
 Conversión entre tipos primitivos y sus equivalentes en clases envolventes (ej: int y Integer).
+
 
 ## 9. Clases Abstractas
 No se pueden instanciar. Pueden contener métodos abstractos que deben ser implementados por las subclases.
