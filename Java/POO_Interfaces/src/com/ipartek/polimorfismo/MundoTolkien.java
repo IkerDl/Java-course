@@ -4,19 +4,16 @@ public abstract class MundoTolkien {
 
     private Ubicacion dondeEstoy;
     private Double peso;
-    private Double precio;
+
 
     ///////////////////////////////////////////////
 
-
-    public MundoTolkien(Ubicacion dondeEstoy, Double peso, Double precio) {
+    public MundoTolkien(Ubicacion dondeEstoy, Double peso) {
         this.dondeEstoy = dondeEstoy;
         this.peso = peso;
-        this.precio = precio;
     }
 
     /////////////////////////////////////////////////
-
 
     public Ubicacion getDondeEstoy() {
         return dondeEstoy;
@@ -34,13 +31,6 @@ public abstract class MundoTolkien {
         this.peso = peso;
     }
 
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
 
 
     ///////////////////////////////////////////////
@@ -50,4 +40,7 @@ public abstract class MundoTolkien {
 
 
     ////////////////////////////////////////////////
+
+
+
 }
