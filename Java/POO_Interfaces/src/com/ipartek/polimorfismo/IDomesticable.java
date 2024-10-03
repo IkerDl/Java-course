@@ -1,6 +1,7 @@
 package com.ipartek.polimorfismo;
 
 public interface IDomesticable {
-
-    //interface de marcado
+    String getDenominacion();
+    void setDomesticado(Boolean domesticado);
+    Boolean getDomesticado();
 }

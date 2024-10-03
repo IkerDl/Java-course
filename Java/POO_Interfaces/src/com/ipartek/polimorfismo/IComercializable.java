@@ -4,6 +4,5 @@ public interface IComercializable {
 
     String getDenominacion();
     Double getPrecio();
-    Ubicacion getDondeEstoy();
 
 }

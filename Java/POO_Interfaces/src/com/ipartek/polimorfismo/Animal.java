@@ -39,6 +39,7 @@ public abstract class Animal extends MundoTolkien implements IComercializable{
         return domesticado;
     }
 
+
     public void setDomesticado(Boolean domesticado) {
         this.domesticado = domesticado;
     }

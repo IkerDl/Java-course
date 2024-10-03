@@ -93,7 +93,30 @@ public abstract class Humanoide extends MundoTolkien {
 
     public void domesticar(IDomesticable elDomesticable){
 
-        
+        //Comprobar si elDomesticable está domesticado
+        if(elDomesticable.getDomesticado()){
+            JOptionPane.showMessageDialog(null,"El " + elDomesticable.getDenominacion() + " ya está domesticado");
+        }else{
+            elDomesticable.setDomesticado(true);
+            JOptionPane.showMessageDialog(null,"El " + elDomesticable.getDenominacion() + " ha sido domesticado");
+
+            if(elDomesticable instanceof ICabalgable){
+                //YES es 0 - NO es 1 y CERRAR CON LA x ES -1
+                int opcionElegida = JOptionPane.showConfirmDialog(
+                        null,
+                        "¿Quieres cabalgar a " + elDomesticable.getDenominacion() + "?",
+                        "Cabalgar!!!",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if(opcionElegida == 0){
+
+                    cabalgar((ICabalgable) elDomesticable);
+                }
+
+            }
+
+        }
 
     }
 
@@ -104,8 +127,12 @@ public abstract class Humanoide extends MundoTolkien {
 
             if (Utilidades.compruebaMismoLugar(this, (MundoTolkien) elCabalgable)) {
                 //Comprobar si elCabalgable aguanta el peso
-                JOptionPane.showMessageDialog(null, this.nombre + " está montado sobre " + elCabalgable.getDenominacion());
+                if(elCabalgable.getCargaMaxima() < this.getPeso()) {
+                    JOptionPane.showMessageDialog(null, this.nombre + " no ha podido montar sobre " + elCabalgable.getDenominacion() + " por exceso de peso");
+                    return;
+                }
 
+                JOptionPane.showMessageDialog(null, this.nombre + " está montado sobre " + elCabalgable.getDenominacion());
                 //String destino = JOptionPane.showInputDialog("¿A qué ciudad va a viajar?");
                 //String[] destinos = {"GONDOR","RIVENDEL"};
                 Ubicacion[] ubicaciones = Ubicacion.values();
@@ -156,15 +183,10 @@ public abstract class Humanoide extends MundoTolkien {
                     JOptionPane.YES_NO_OPTION
             );
 
-            switch(opcionElegida){
-
-                case JOptionPane.YES_OPTION:
-                        //domesticar(elCabalgable);
-                case JOptionPane.NO_OPTION:
-                    JOptionPane.showMessageDialog(null,"Has elegido no domesticar a " + elCabalgable.getDenominacion());
-                case JOptionPane.CLOSED_OPTION:
-                    JOptionPane.showMessageDialog(null, "No has elegido nada...");
-
+            switch (opcionElegida) {
+                case JOptionPane.YES_OPTION -> domesticar(elCabalgable);
+                case JOptionPane.NO_OPTION -> JOptionPane.showMessageDialog(null, "Has elegido no domesticar a " + elCabalgable.getDenominacion());
+                case JOptionPane.CLOSED_OPTION -> JOptionPane.showMessageDialog(null, "No has elegido nada...");
             }
         }
 

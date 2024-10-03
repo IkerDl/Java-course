@@ -1,7 +1,7 @@
 package com.ipartek.polimorfismo;
 
-public interface ICabalgable {
+public interface ICabalgable extends IDomesticable{
 
-    String getDenominacion();
-    Boolean getDomesticado();
+    Double getCargaMaxima();
+
 }
