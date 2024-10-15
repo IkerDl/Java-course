@@ -1,22 +1,24 @@
 package com.ipartek.clases;
 
-import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Principal {
 
     public static void main(String[] args) {
-
-        Caja caja1 = new Caja("Esta caja solamente puede contener strings");
+        
+        Caja caja1 = new Caja("Esta caja solo puede contener Strings");
         System.out.println("caja1 = " + caja1);
         Vaca pepita = new Vaca("Pepita");
 
+        //AQUÍ DECIDO, COMO PROGRAMADOR, QUÉ ES T
         CajaGenerica<Vaca> caja2 = new CajaGenerica<>(pepita);
-        System.out.println(caja2);
-        CajaGenerica<String> caja3 = new CajaGenerica<>("Hola");
-        System.out.println(caja3);
+        CajaGenerica<String> caja3 =  new CajaGenerica<>("Hola");
+        CajaGenerica<Integer> caja4 = new CajaGenerica<>(6);
 
-        CajaGenerica<Integer> caja4 = new CajaGenerica<>(3);
-        System.out.println(caja4);
+        //AQUÍ DECIDO, COMO PROGRAMADOR, QUÉ E (EN LA CLASE GENÉRICA) ES VACA
+        List<Vaca> establo = new ArrayList<>();
+
+
     }
-
 }

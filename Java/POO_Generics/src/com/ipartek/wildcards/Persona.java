@@ -1,17 +1,19 @@
-package com.ipartek.clases;
+package com.ipartek.wildcards;
 
-public class Vaca {
+public class Persona {
 
     private String nombre;
 
-    ////////////////////////////////////
+    /////////////////////////////////
 
 
-    public Vaca(String nombre) {
+    public Persona(String nombre) {
         this.nombre = nombre;
     }
 
-    /////////////////////////////////////////
+
+    ////////////////////////////////////
+
 
     public String getNombre() {
         return nombre;
@@ -21,12 +23,13 @@ public class Vaca {
         this.nombre = nombre;
     }
 
-    //////////////////////////////////////
+
+    /////////////////////////////////////
 
 
     @Override
     public String toString() {
-        return "Vaca{" +
+        return "Persona{" +
                 "nombre='" + nombre + '\'' +
                 '}';
     }

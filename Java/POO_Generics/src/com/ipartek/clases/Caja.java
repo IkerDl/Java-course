@@ -4,12 +4,14 @@ public class Caja {
 
     private String dato;
 
+    //////////////////////////////////
+
+
     public Caja(String dato) {
         this.dato = dato;
     }
 
-    ///////////////////////////////
-
+    /////////////////////////////////
 
     public String getDato() {
         return dato;
@@ -19,10 +21,8 @@ public class Caja {
         this.dato = dato;
     }
 
-    ///////////////////////////////
 
-
-    /////////////////////////////
+    /////////////////////////////////
 
 
     @Override
@@ -31,4 +31,6 @@ public class Caja {
                 "dato='" + dato + '\'' +
                 '}';
     }
+
+
 }
