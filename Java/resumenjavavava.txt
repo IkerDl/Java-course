@@ -1,0 +1,313 @@
+Casteo automático en primitivos:12
+Ocurre cuando los tipos de datos son compatibles3.
+Se permite asignar valores de un tipo más pequeño a uno más grande4.
+Ejemplo: int i = 100; float f = i;56
+
+Casteo manual en primitivos:21
+Se utiliza para asignar un valor de un tipo más grande a uno más pequeño4.
+Evita pérdida de datos y funciona para tipos incompatibles.
+Ejemplo: double d = 100; long l = (long)d;7
+
+Casteo entre objetos de tipos compatibles:8
+Permite downcast y upcast entre clases relacionadas por herencia.
+Ejemplo: Animal vaca = new Vaca(); Vaca v = (Vaca)vaca;910
+
+Errores de casting:
+No se puede hacer casting directo entre tipos primitivos y referencias.
+Ejemplo: Long l = 345L; int i = (int)l; (ClassCastException)
+
+Recuerda que el casting debe realizarse con precaución para evitar errores y pérdida de datos.
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+¿Qué es una clase abstracta?
+Una clase abstracta es similar a una clase convencional, pero se utiliza para definir una estructura 
+general sin la intención de crear objetos directamente.
+Puede contener atributos, métodos y constructores.
+Sirve para unificar datos u operaciones en subclases.
+
+
+
+Métodos abstractos:
+Los métodos abstractos no tienen cuerpo (solo la firma).
+Deben estar dentro de una clase abstracta.
+Las subclases deben implementar los métodos abstractos.
+
+
+Preguntas frecuentes:
+¿Es necesario que una clase con métodos abstractos sea abstracta?
+Sí, para evitar métodos no ejecutables en clases concretas.
+
+¿Una clase abstracta puede no contener métodos abstractos?
+ Sí, en algunos casos.
+
+¿Una clase que hereda de una clase abstracta puede ser no abstracta? 
+Sí, anulando los métodos abstractos.
+
+¿Puede una clase abstracta tener constructor? 
+Sí, solo para ser usados por las clases hijas.
+
+¿Cuándo usar una clase abstracta y cuándo una interfaz?
+ Elección según necesidades.
+
+¿Puede una clase abstracta implementar una interfaz? 
+Sí.
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+¿Qué son las clases Wrapper?
+Son envoltorios para los tipos de datos primitivos en Java.
+Permiten tratar los tipos primitivos como objetos.
+
+Tipos de Wrappers en Java:
+Byte, Short, Integer, Long, Float, Double, Character, Boolean.
+Cada uno corresponde a un tipo primitivo y permite conversiones entre primitivos y objetos.
+
+Autoboxing (Wrapping automático):
+El compilador convierte automáticamente tipos primitivos en objetos Wrapper.
+Ejemplo: Character chWrapped = 'a';
+
+Auto Unboxing (Deswrapping automático):
+El compilador convierte automáticamente objetos Wrapper en tipos primitivos.
+Ejemplo: int miEnteroPrimitivo = miEnteroObjeto;
+
+Boxing (Wrapping manual):
+Conversión no automática de primitivos a objetos Wrapper.
+Ejemplo: Integer numWrapper = Integer.valueOf(numPrimitive);
+
+Unboxing (Deswrapping manual):
+Conversión no automática de objetos Wrapper a primitivos.
+Ejemplo: int numUnWrapped = numWrapper.intValue();
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+¿Qué es un enumerador (enum)?1
+Un enumerador es una clase especial que limita la creación de objetos a los especificados explícitamente en su implementación2.
+Los enumeradores heredan de la clase Enum y tienen métodos heredados de esa clase padre3.
+
+No son solo Strings, sino objetos de una clase con atributos, constructor y métodos getter.
+Creación de un enumerador:1
+Se declara usando la palabra clave enum4.
+Debe contener una lista de constantes (mayúsculas) y puede tener otros elementos como métodos y variables5.
+
+Cada constante puede tener atributos y un constructor.
+Cómo se implementa un enumerador:1
+Cada constante se convierte en una instancia static y final de la clase del enumerador6.
+No se permite la herencia de clases en enumeradores, pero sí la herencia de interfaces.
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+equals y hashCode en Java:1
+equals: Método que compara si dos objetos son iguales en contenido. Por defecto, utiliza == para comparar referencias, pero se puede sobreescribir para definir criterios personalizados de igualdad.
+hashCode: Método que devuelve un valor entero (hash) que identifica al objeto2. Debe estar en función de los valores que determinan la igualdad o diferencia entre objetos.
+Comparación con ==:
+
+== compara referencias, no contenido. Dos objetos pueden ser iguales en contenido pero tener diferentes referencias.
+Ejemplo: Dos coches con los mismos atributos (fabricante, modelo) no son iguales con ==.
+
+Sobreescribiendo equals:3
+Se puede personalizar el método equals para definir criterios de igualdad.
+Ejemplo: Comparar coches por fabricante y modelo.
+
+Importancia de hashCode:
+Usado en estructuras como HashMap o HashSet.
+Debe coincidir con equals para evitar colisiones.
+Más rápido que equals, pero no garantiza igualdad4.
+
+Objects.equals:
+Método estático que compara dos objetos5.
+Evita NullPointerException.
+Utiliza equals de la instancia o ==.
+
+String.hashCode y String.equals:
+Dos String con mismo texto deben tener mismo hashCode6.
+No confiar solo en hashCode para comprobar igualdad7.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Los generics permiten parametrizar clases, interfaces y métodos con tipos.
+Se utilizan como “variables” para tipos.
+Convenciones comunes para nombres de parámetros de tipo: E (elemento de colección), K (clave), N (número), T (tipo), V (valor), S, U, V (segundos, terceros y cuartos tipos).
+
+Métodos Generic:
+Adaptan un método para trabajar con cualquier tipo.
+Ejemplo: public <T> T Add(T a, T b).
+
+Reglas de los métodos Generic:
+Declaración con parámetros de tipo delimitados por ángulos <T>.
+Parámetros de tipo pueden usarse para el tipo de retorno y argumentos.
+Cuerpo del método como cualquier otro.
+No se pueden usar tipos primitivos.
+
+Ejemplo de método Generic:
+Método para imprimir arrays de distintos tipos.
+public static <E> void printArray(E[] elArray) { ... }.
+Métodos Generic con parámetros de tipos limitados:
+Restricciones para aceptar solo ciertos tipos.
+Ejemplo: public static <T extends Comparable<T>> T elMetodo(T x, T y, T z) { ... }.
+
+Clases e Interfaces Generic:
+Declaración similar a no generic, pero con parámetros de tipo.
+Clases parametrizadas aceptan uno o más parámetros.
+Restricciones y consideraciones aplican también a clases e interfaces.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+¿Qué es una Interface?1
+Una interface es similar a una clase abstracta, pero con métodos sin cuerpo (es decir, no implementados)23.
+Define un protocolo de comportamiento para las clases que la implementan.
+Puede contener constantes que otras clases pueden usar.
+
+Diferencias entre Interface y Clase Abstracta:4
+Los métodos en una interfaz son implícitamente abstractos y públicos5.
+Una clase abstracta no puede implementar métodos abstractos, mientras que una interfaz no puede implementar ningún método.
+Las interfaces no declaran variables de instancia6.
+
+Tips sobre Interfaces:
+Una clase puede implementar múltiples interfaces7.
+Las variables en una interfaz son públicas, estáticas y finales9.
+El polimorfismo de interfaz permite tratar diferentes clases como un mismo tipo.
+
+Implementando una Interface:10
+Para implementar una interfaz, una clase debe proporcionar implementaciones para los métodos definidos en la interfaz8.
+Varias clases pueden implementar la misma interfaz de diferentes maneras11.
+
+Variables en Interfaces:
+Las variables declaradas en una interfaz son constantes y se pueden usar para valores compartidos entre clases.
+
+Jerarquía entre Interfaces:12
+Las interfaces pueden heredar de otras interfaces.
+Las clases pueden implementar múltiples interfaces7.
+
+Utilización de una Interface como Tipo de Dato:13
+Las interfaces se pueden usar como tipos de referencia para almacenar objetos de diferentes clases que las implementan.
+
+//////////////////////////////////////////////////////////////////////////////
+
+Tipo de Referencia: 
+En Java, todas las cadenas son instancias de la clase String, lo que las convierte en tipos de referencia1.
+Codificación Unicode: Los caracteres de una cadena se codifican usando Unicode, que asigna un número único a cada carácter en todos los idiomas.
+
+Inmutabilidad: 
+Los objetos String son inmutables, lo que significa que no se pueden modificar una vez creados.
+Caracteres de Escape: Se utilizan secuencias de escape (como \n o \t) para representar caracteres especiales en las cadenas.
+Concatenación: Para unir cadenas, se utiliza el operador +.
+
+Comparación: 
+Se compara por referencia con == y por valor con el método equals()2.
+Métodos Útiles: Algunos métodos útiles incluyen length(), substring(), trim(), y charAt().
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+Miembros públicos y restringidos:1
+Los miembros públicos pueden ser accedidos desde cualquier lugar del programa2.
+Los miembros restringidos solo pueden ser accedidos por otros métodos definidos en la misma clase3.
+Controlan el acceso a datos dentro de un objeto.
+
+Tipos de modificadores de acceso:
+Private: Solo accesible dentro de la misma clase4.
+Default (sin especificar): Accesible solo dentro del mismo paquete.
+Protected: Accesible dentro del mismo paquete o desde subclases en paquetes diferentes.
+Public: Accesible desde cualquier lugar del programa.
+
+Especificadores no de acceso:
+Static: Indica que un miembro pertenece a la clase en lugar de una instancia.
+Final: Indica que un miembro no puede ser modificado.
+Abstract: Se usa en clases o métodos para indicar que no se pueden instanciar directamente.
+Synchronized: Se utiliza para controlar el acceso concurrente a métodos o bloques de código.
+Transient: Indica que un miembro no debe ser serializado.
+Volatile: Se utiliza para variables que pueden ser modificadas por múltiples hilos.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Operadores aritméticos:2
+Suma (+), resta (-), multiplicación (*), división (/) y resto (%)3.
+Pueden ser unarios o binarios4.
+También se utilizan para incrementar o decrementar variables5.
+
+Operadores relacionales:6
+Mayor que (>), menor que (<), igual que (==), diferente que (!=), mayor o igual que (>=) y menor o igual que (<=).
+Devuelven valores booleanos (verdadero o falso)7.
+
+Operadores lógicos:8
+AND (&&), OR (||) y NOT (!).
+Evalúan expresiones booleanas.
+
+Operadores de asignación:91
+Asignan valores a variables (por ejemplo, =, +=, -=, *=, /=, %=).
+
+Operador instanceof:
+Determina si un objeto es una instancia de una clase o interfaz concretas10.
+
+Operador ternario:11
+Simplificación de un if-else12.
+Ejemplo: resultado = (condición) ?[^13^][13] A : B14.
+
+Precedencia de los operadores:15
+Paréntesis, postfijo, prefijo, multiplicativo, aditivo, relacional, lógico y asignación.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Definición y Función:
+Los packages en Java son mecanismos para modularizar el código y controlar el acceso entre clases1.
+Permiten agrupar y organizar clases e interfaces2.
+Se importan con la sentencia import.
+
+Nomenclatura:
+Los nombres de los paquetes suelen seguir la estructura de dominio inverso (por ejemplo, com.miempresa.gizmo).
+Pueden contener subpaquetes para diferentes componentes del programa.
+
+Contenido y Relaciones:
+Un paquete puede contener definiciones de tipos (clases, interfaces) y otros paquetes3.
+La relación entre paquetes y clases se refleja en la estructura de carpetas en el sistema de archivos local.
+
+Ejemplo:
+Si el dominio es “miempresa.com” y el programa es “Gizmo”, el paquete podría ser com.miempresa.gizmo.
+
+////////////////////////////////////////////////////////////////////////////////////7
+
+
+Clases y Objetos:
+Las clases son plantillas que definen variables y métodos comunes para crear objetos3.
+Un objeto es una instancia de una clase con características y comportamientos específicos4.
+
+Herencia:
+La herencia permite que una clase (subclase) herede atributos y métodos de otra clase (superclase)5.
+Crea una jerarquía de clases, donde las subclases pueden extender o especializar la funcionalidad de la superclase.
+
+Encapsulamiento:1
+Aglutina características y comportamientos en una sola entidad (clase).
+Oculta los detalles internos y expone solo lo necesario para el resto del sistema6.
+
+Polimorfismo:
+Permite que un método, variable u objeto tenga varias formas distintas.
+Hay cuatro tipos principales de polimorfismo en Java: asignación, puro, sobrecarga e inclusión2.
+
+Abstracción:
+Captura las características esenciales de un objeto y su comportamiento7.
+Permite manejar la complejidad al tratar las clases como cajas negras.
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Paso por valor:
+En Java, los argumentos se pasan siempre por valor1. Si el argumento es de tipo primitivo, se copia el valor en el Stack2. Si es un objeto, se copia la referencia al objeto en el Stack3.
+
+Objetos inmutables: 
+Los objetos inmutables (como Strings) no pueden modificarse directamente dentro de un método. Se crea una nueva referencia si intentamos modificarlos4.
+
+Objetos mutables: 
+Los objetos mutables (como ArrayLists) pueden modificarse dentro de un método y los cambios se reflejarán fuera del mismo.
+
+Tips finales:
+ Modificar atributos de objetos pasados como argumentos afecta fuera del método, y cambiar la referencia crea un nuevo objeto en la memoria Heap5
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
